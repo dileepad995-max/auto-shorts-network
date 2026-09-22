@@ -12,7 +12,7 @@ client = genai.Client(api_key=GEMINI_API_KEY)
 # Generate Dark Psychology Quote
 prompt = "Write a powerful 1-sentence dark psychology or stoic quote for a short video. Do not use quotes."
 response = client.models.generate_content(
-    model='gemini-2.5-flash',
+    model=gemini-1.5-flash,
     contents=prompt,
 )
 quote_text = response.text.strip()
