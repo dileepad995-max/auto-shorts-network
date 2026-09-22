@@ -2,7 +2,9 @@ import os
 import random
 import requests
 from google import genai
-from moviepy.editor import TextClip, ColorClip, CompositeVideoClip, AudioFileClip
+from moviepy.video.VideoClip import TextClip, ColorClip
+from moviepy.video.compositing.CompositeVideoClip import CompositeVideoClip
+from moviepy.audio.io.AudioFileClip import AudioFileClip
 from gtts import gTTS
 
 # Setup Gemini API
@@ -31,12 +33,11 @@ bg_clip = ColorClip(size=(1080, 1920), color=(15, 15, 20)).set_duration(duration
 
 # Text Clip
 txt_clip = TextClip(
-    quote_text,
-    fontsize=50,
+    text=quote_text,
+    font_size=50,
     color='white',
-    font='DejaVu-Sans-Bold',
-    method='caption',
-    size=(900, None)
+    size=(900, None),
+    method='caption'
 ).set_position('center').set_duration(duration)
 
 # Combine Video and Audio
