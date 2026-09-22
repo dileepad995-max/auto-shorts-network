@@ -29,7 +29,7 @@ audio_clip = AudioFileClip("audio.mp3")
 duration = audio_clip.duration
 
 # Background Clip (Dark Theme)
-bg_clip = ColorClip(size=(1080, 1920), color=(15, 15, 20)).set_duration(duration)
+bg_clip = ColorClip(size=(1080, 1920), color=(15, 15, 20)).with_duration(duration)
 
 # Text Clip
 txt_clip = TextClip(
@@ -38,10 +38,10 @@ txt_clip = TextClip(
     color='white',
     size=(900, None),
     method='caption'
-).set_position('center').set_duration(duration)
+).with_duration(duration).with_position('center')
 
 # Combine Video and Audio
-final_video = CompositeVideoClip([bg_clip, txt_clip]).set_audio(audio_clip)
+final_video = CompositeVideoClip([bg_clip, txt_clip]).with_audio(audio_clip)
 final_video.write_videofile("output.mp4", fps=24, codec='libx264', audio_codec='aac')
 
 print("Video generation complete: output.mp4")
