@@ -3,5 +3,5 @@ google-generativeai
 requests
 gTTS
 edge-tts
-moviepy
+moviepy==1.0.3
 pillow
